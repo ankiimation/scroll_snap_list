@@ -32,15 +32,15 @@ class _HorizontalListDemoState extends State<HorizontalListDemo> {
 
   void _loadMoreData() {
     setState(() {
-      _isLoading = true;  
+      _isLoading = true;
     });
-    
+
     Future.delayed(Duration(seconds: 1), () {
       setState(() {
         for (int i = 0; i < 10; i++) {
           data.add(Random().nextInt(100) + 1);
         }
-        _isLoading = false;  
+        _isLoading = false;
       });
     });
   }
@@ -60,7 +60,9 @@ class _HorizontalListDemoState extends State<HorizontalListDemo> {
 
   Widget _buildListItem(BuildContext context, int index) {
     if (index == data.length)
-      return Center(child: CircularProgressIndicator(),);
+      return Center(
+        child: CircularProgressIndicator(),
+      );
 
     //horizontal
     return Container(
@@ -92,11 +94,11 @@ class _HorizontalListDemoState extends State<HorizontalListDemo> {
             children: <Widget>[
               Expanded(
                 child: ScrollSnapList(
-                  onItemFocus: _onItemFocus,
+                  // onItemFocus: _onItemFocus,
                   onReachEnd: _loadMoreData,
                   itemSize: 35,
                   itemBuilder: _buildListItem,
-                  itemCount: _isLoading?data.length+1:data.length,
+                  itemCount: _isLoading ? data.length + 1 : data.length,
                   reverse: true,
                   endOfListTolerance: 100,
                 ),
