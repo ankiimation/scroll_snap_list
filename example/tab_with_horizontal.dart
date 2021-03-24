@@ -111,7 +111,7 @@ class _HorizontalListJumboState extends State<HorizontalListJumbo> {
           Expanded(
             child: ScrollSnapList(
               margin: EdgeInsets.symmetric(vertical: 10),
-              onItemFocus: _onItemFocus,
+              onScrollUpdate: _onItemFocus,
               itemSize: 360,
               itemBuilder: _buildListItem,
               itemCount: data.length,

@@ -89,7 +89,7 @@ class _DynamicHorizontalDemoState extends State<DynamicHorizontalDemo> {
             children: <Widget>[
               Expanded(
                 child: ScrollSnapList(
-                  onItemFocus: _onItemFocus,
+                  onScrollUpdate: _onItemFocus,
                   itemSize: 150,
                   itemBuilder: _buildListItem,
                   itemCount: data.length,
