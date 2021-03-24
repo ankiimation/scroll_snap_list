@@ -359,6 +359,7 @@ class ScrollSnapListState extends State<ScrollSnapList> {
                 key: widget.listViewKey,
                 shrinkWrap: true,
                 controller: widget.listController,
+                physics: ClampingScrollPhysics(),
                 padding: widget.scrollDirection == Axis.horizontal
                     ? EdgeInsets.symmetric(horizontal: _listPadding)
                     : EdgeInsets.symmetric(
