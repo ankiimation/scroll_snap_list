@@ -324,10 +324,12 @@ class ScrollSnapListState extends State<ScrollSnapList> {
                     pixel: scrollInfo.metrics.pixels,
                     itemSize: widget.itemSize,
                   );
-                  widget.onScrollEnd?.call(currentIndex);
+                  
                   //only animate if not yet snapped (tolerance 0.01 pixel)
                   if ((scrollInfo.metrics.pixels - offset).abs() > 0.01) {
                     _animateScroll(offset);
+                  }else if (scrollInfo.metrics.pixels == offset){
+                  widget.onScrollEnd?.call(currentIndex);
                   }
                 } else if (scrollInfo is ScrollUpdateNotification) {
                   //save pixel position for scale-effect
